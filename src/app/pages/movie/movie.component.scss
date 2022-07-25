@@ -1,0 +1,50 @@
+@import "../../../styles/variables";
+
+:host ::ng-deep {
+  .p-tabview-nav {
+    justify-content: center;
+    li {
+      .p-tabview-nav-link {
+        padding: 1.25rem;
+        background: var(--bg-color);
+      }
+
+      &.p-highlight .p-tabview-nav-link {
+        background: var(--bg-color);
+      }
+    }
+  }
+}
+
+.poster {
+  max-width: 100%;
+}
+
+.overview {
+  line-height: 1.5;
+}
+
+.stat {
+  display: flex;
+  margin-bottom: 10px;
+
+  .label {
+    width: 150px;
+    font-weight: bold;
+  }
+  .value {
+    color: var(--primary-color);
+  }
+}
+
+.actor {
+  padding: 10px;
+  img {
+    width: 100%;
+  }
+
+  &-name {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
