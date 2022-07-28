@@ -39,13 +39,6 @@ export interface IMovieDto {
   total_pages: number;
 }
 
-export interface ITvDto {
-  page: number;
-  results: IMovie[];
-  total_results: number;
-  total_pages: number;
-}
-
 export interface IMovieVideoDto {
   id: number;
   results: IMovieVideo[];

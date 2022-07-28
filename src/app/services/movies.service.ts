@@ -6,11 +6,11 @@ import {
   IMovieDto,
   IMovieImages,
   IMovieVideoDto,
-  ITvDto,
 } from '../models/movie';
 import { IGenresDto } from '../models/genres';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { ITvDto } from '../models/tv';
 
 @Injectable({
   providedIn: 'root',
@@ -85,10 +85,11 @@ export class MoviesService {
     );
   }
 
-  searchMovies(page: number) {
+  searchMovies(page: number, searchValue?: string) {
+    const uri = searchValue ? 'search/movie' : 'movie/popular';
     return this.http
       .get<IMovieDto>(
-        `${this.baseUrl}/movie/popular/?page=${page}&api_key=${this.apiKey}`
+        `${this.baseUrl}/${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`
       )
       .pipe(
         switchMap((res) => {
@@ -97,12 +98,12 @@ export class MoviesService {
       );
   }
 
-  getTV(type: string = 'latest', count: number = 12) {
+  getTvs(type: string = 'latest', count: number = 12) {
     return this.http
-      .get<ITvDto>(`${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`)
+      .get<ITvDto>(`${this.baseUrl}/tv/${type}?api_key=${this.apiKey}`)
       .pipe(
         switchMap((res) => {
-          return of(res.results.slice(0, 12));
+          return of(res.results.slice(0, count));
         })
       );
   }
