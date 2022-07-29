@@ -1,3 +1,5 @@
+import { IGenre } from './genres';
+
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
@@ -42,11 +44,6 @@ export interface IMovieDto {
 export interface IMovieVideoDto {
   id: number;
   results: IMovieVideo[];
-}
-
-export interface IGenre {
-  id: number;
-  name: string;
 }
 
 export interface IMovieVideo {

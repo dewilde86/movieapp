@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
-import { Genre } from '../../models/genres';
+import { IGenre } from '../../models/genres';
 
 @Component({
   selector: 'app-genres',
@@ -8,7 +8,7 @@ import { Genre } from '../../models/genres';
   styleUrls: ['./genres.component.scss'],
 })
 export class GenresComponent implements OnInit {
-  genres: Genre[] = [];
+  genres: IGenre[] = [];
 
   constructor(private moviesService: MoviesService) {}
 
